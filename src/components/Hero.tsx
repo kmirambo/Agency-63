@@ -2,39 +2,42 @@ import { ArrowRight, Play } from 'lucide-react';
 
 const stats = [
   { value: '200+', label: 'Projects Delivered' },
-  { value: '50+', label: 'Brand Partners' },
-  { value: '2M+', label: 'Audience Reached' },
-  { value: '12', label: 'Industry Awards' },
+  { value: '50+',  label: 'Brand Partners'     },
+  { value: '2M+',  label: 'Audience Reached'   },
+  { value: '12',   label: 'Industry Awards'     },
 ];
 
 export default function Hero() {
   return (
-    <section className="relative min-h-screen flex items-center hero-bg overflow-hidden pt-20">
-      {/* Background image overlay */}
-      <div className="absolute inset-0 z-0">
-        <div
-          className="absolute inset-0 bg-cover bg-center bg-no-repeat opacity-20"
-          style={{
-            backgroundImage: `url('https://images.unsplash.com/photo-1540575467063-178a50c2df87?w=1600&q=80')`,
-          }}
-        />
-        <div className="absolute inset-0 bg-gradient-to-r from-[#080808] via-[#080808]/80 to-transparent" />
-        <div className="absolute inset-0 bg-gradient-to-t from-[#080808] via-transparent to-transparent" />
-      </div>
+    <section className="relative min-h-screen flex items-center hero-bg overflow-hidden pt-24">
 
-      {/* Decorative yellow glow */}
-      <div className="absolute top-1/3 right-1/4 w-96 h-96 bg-[#FFC107]/8 rounded-full blur-3xl pointer-events-none" />
+      {/* Soft gradient orbs */}
+      <div className="absolute top-1/4 right-10 w-[480px] h-[480px] rounded-full bg-gradient-to-br from-[#2DE2C8]/12 to-[#7B5CF6]/10 blur-3xl pointer-events-none" />
+      <div className="absolute bottom-10 left-0 w-72 h-72 rounded-full bg-[#5BA8EE]/8 blur-3xl pointer-events-none" />
 
-      <div className="relative z-10 max-w-7xl mx-auto px-6 py-20 w-full">
+      {/* Subtle grid texture */}
+      <div
+        className="absolute inset-0 opacity-[0.025] pointer-events-none"
+        style={{
+          backgroundImage:
+            'linear-gradient(#0D1126 1px, transparent 1px), linear-gradient(90deg, #0D1126 1px, transparent 1px)',
+          backgroundSize: '48px 48px',
+        }}
+      />
+
+      <div className="relative z-10 max-w-7xl mx-auto px-6 py-24 w-full">
         <div className="max-w-3xl">
-          {/* Eyebrow */}
-          <p className="text-[#FFC107] text-sm font-semibold tracking-[0.2em] uppercase mb-6 flex items-center gap-3">
-            <span className="w-8 h-px bg-[#FFC107]" />
-            Africa's Leading BTL Marketing Agency
-          </p>
+
+          {/* Eyebrow pill */}
+          <div className="inline-flex items-center gap-2 mb-8 px-4 py-1.5 rounded-full border border-surface-300 bg-white/60 backdrop-blur-sm">
+            <span className="w-2 h-2 rounded-full bg-brand-gradient" style={{background:'linear-gradient(115deg,#2DE2C8,#7B5CF6)'}} />
+            <p className="text-surface-600 text-xs font-semibold tracking-[0.15em] uppercase">
+              Africa's Leading BTL Marketing Agency
+            </p>
+          </div>
 
           {/* Headline */}
-          <h1 className="font-display font-black text-6xl md:text-7xl lg:text-8xl leading-[0.9] text-white mb-8">
+          <h1 className="font-display font-black text-6xl md:text-7xl lg:text-8xl leading-[0.92] text-surface-900 mb-8">
             We Create{' '}
             <span className="text-gradient italic">Moments</span>{' '}
             That
@@ -43,7 +46,7 @@ export default function Hero() {
           </h1>
 
           {/* Sub */}
-          <p className="text-white/60 text-lg leading-relaxed max-w-xl mb-10">
+          <p className="text-surface-600 text-lg leading-relaxed max-w-xl mb-10">
             Africa's leading below-the-line and experiential marketing agency. From product launches to roadshows — we build brand experiences and marketing asset forges.
           </p>
 
@@ -51,35 +54,38 @@ export default function Hero() {
           <div className="flex flex-wrap items-center gap-4 mb-20">
             <a
               href="#contact"
-              className="inline-flex items-center gap-2 bg-[#FFC107] hover:bg-[#FFB300] text-black font-bold px-7 py-3.5 rounded transition-all duration-200 hover:shadow-[0_8px_30px_rgba(255,193,7,0.3)]"
+              className="inline-flex items-center gap-2 bg-brand-gradient text-white font-bold px-7 py-3.5 rounded-lg shadow-lg hover:opacity-90 hover:shadow-xl transition-all duration-200"
             >
               Start Your Project
               <ArrowRight size={16} />
             </a>
             <a
               href="#work"
-              className="inline-flex items-center gap-2 text-white/70 hover:text-white font-medium transition-colors"
+              className="inline-flex items-center gap-2 text-surface-600 hover:text-surface-900 font-medium transition-colors"
             >
-              <span className="w-10 h-10 rounded-full border border-white/20 flex items-center justify-center hover:border-[#FFC107] transition-colors">
-                <Play size={14} fill="currentColor" />
+              <span className="w-10 h-10 rounded-full border border-surface-300 bg-white flex items-center justify-center shadow-sm hover:shadow-md transition-shadow">
+                <Play size={13} fill="currentColor" className="text-surface-700 ml-0.5" />
               </span>
               View Our Work
             </a>
           </div>
 
           {/* Stats */}
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-8 pt-8 border-t border-white/10">
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-8 pt-8 border-t border-surface-300">
             {stats.map((stat) => (
               <div key={stat.label}>
-                <p className="font-display font-black text-4xl text-[#FFC107] leading-none mb-1">
+                <p className="font-display font-black text-4xl text-gradient leading-none mb-1">
                   {stat.value}
                 </p>
-                <p className="text-white/50 text-sm">{stat.label}</p>
+                <p className="text-surface-500 text-sm">{stat.label}</p>
               </div>
             ))}
           </div>
         </div>
       </div>
+
+      {/* Bottom fade */}
+      <div className="absolute bottom-0 inset-x-0 h-24 bg-gradient-to-t from-surface-100 to-transparent pointer-events-none" />
     </section>
   );
 }
